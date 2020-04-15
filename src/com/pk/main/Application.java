@@ -24,6 +24,7 @@ public class Application {
 		
 		ops.showWorldLevelSummary();
 		ops.showDiseaseWiseWorldSummary();
+		ops.showCountryBreakup("COVID-19");
 		
 	}
 
