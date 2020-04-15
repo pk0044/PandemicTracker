@@ -1,0 +1,10 @@
+report COVID-19 P1 China Hubei Wuhan
+report COVID-19 P2 China Hubei Wuhan
+report COVID-19 P3 China Jiangsu Shanghai
+report COVID-19 P4 India Uttar Pradesh Agra
+report COVID-19 P5 India Uttar Pradesh Varanasi
+report COVID-19 P6 India Karnataka Bangalore
+report COVID-19 P7 India Karnataka Bangalore
+report COVID-19 P8 India Karnataka Bangalore
+report Spanish Flu P9 USA California Los Angeles
+report Spanish Flu P10 USA California San-francisco
