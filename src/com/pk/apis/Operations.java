@@ -145,4 +145,27 @@ public class Operations {
 			System.out.println("________________________________________________________________");
 		}
 	}
+	
+	
+	public void showStateBreakupDiseaseWise(String disease) {
+		for(Map.Entry<String, State> entry: GlobalData.states.entrySet()) {
+			System.out.println(entry.getKey() + ":");
+			System.out.println("Total :: " + entry.getValue().getDiseaseCount().get(disease));
+			System.out.println("Cured :: " + entry.getValue().getCuredCases().get(disease));
+			System.out.println("Active :: " + entry.getValue().getActiveCases().get(disease));
+			System.out.println("Fatality :: " + entry.getValue().getFatalityCases().get(disease));
+			System.out.println("________________________________________________________________");
+		}
+	}
+	
+	public void showDistrictBreakupDiseaseWise(String disease) {
+		for(Map.Entry<String, District> entry: GlobalData.districts.entrySet()) {
+			System.out.println(entry.getKey() + ":");
+			System.out.println("Total :: " + entry.getValue().getDiseaseCount().get(disease));
+			System.out.println("Cured :: " + entry.getValue().getCuredCases().get(disease));
+			System.out.println("Active :: " + entry.getValue().getActiveCases().get(disease));
+			System.out.println("Fatality :: " + entry.getValue().getFatalityCases().get(disease));
+			System.out.println("________________________________________________________________");
+		}
+	}
 }
