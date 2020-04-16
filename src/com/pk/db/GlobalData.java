@@ -3,6 +3,7 @@ package com.pk.db;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.pk.diasease.Disease;
 import com.pk.people.People;
 import com.pk.region.Country;
 import com.pk.region.District;
@@ -22,6 +23,7 @@ public class GlobalData {
 	public static Map<String, Country> cntrs = new HashMap<String, Country>();
 	public static Map<String, State> states = new HashMap<String, State>();
 	public static Map<String, District> districts = new HashMap<String, District>();
+	public static Map<String, Disease> diseaseList = new HashMap<String, Disease>();
 	
 	public static Map<String, Integer> diseaseCount = new HashMap<String, Integer>();
 	public static Map<String, Integer> activeCases = new HashMap<String, Integer>();

@@ -14,15 +14,68 @@ import com.pk.region.State;
 
 public class Operations {
 
-	private void incrementDiseaseCountWorldWide(String disName) {
-		int count = 0;
-		if (GlobalData.diseaseCount.containsKey(disName)) {
-			count = GlobalData.diseaseCount.get(disName);
-			count++;
-		} else {
-			count = 1;
+	private void incrementWorldActiveCases(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalActiveCases(GlobalData.incremnt);
+		}else {
+			Disease disease = new Disease(disName);
+			disease.changeGlobalActiveCases(GlobalData.incremnt);
+			GlobalData.diseaseList.put(disName, disease);
 		}
-		GlobalData.diseaseCount.put(disName, count);
+	}
+	
+	private void decrementWorldActiveCases(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalActiveCases(GlobalData.decriment);
+		}
+	}
+	
+	private void incrementWorldTotalCases(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalTotalCases(GlobalData.incremnt);
+		}else {
+			Disease disease = new Disease(disName);
+			disease.changeGlobalTotalCases(GlobalData.incremnt);
+			GlobalData.diseaseList.put(disName, disease);
+		}
+	}
+	
+	private void decrementtWorldTotalCases(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalTotalCases(GlobalData.decriment);
+		}
+	}
+	
+	private void incrementWorldCured(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalCuredCases(GlobalData.incremnt);
+		}else {
+			Disease disease = new Disease(disName);
+			disease.changeGlobalCuredCases(GlobalData.incremnt);
+			GlobalData.diseaseList.put(disName, disease);
+		}
+	}
+	
+	private void decrementCuredlCases(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalCuredCases(GlobalData.decriment);
+		}
+	}
+	
+	private void incrementWorldFatalityCases(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalFatalityCases(GlobalData.incremnt);
+		}else {
+			Disease disease = new Disease(disName);
+			disease.changeGlobalFatalityCases(GlobalData.incremnt);
+			GlobalData.diseaseList.put(disName, disease);
+		}
+	}
+	
+	private void decrementFatalityCases(String disName) {
+		if(GlobalData.diseaseList.containsKey(disName)) {
+			GlobalData.diseaseList.get(disName).changeGlobalFatalityCases(GlobalData.decriment);
+		}
 	}
 
 	private void incrementRegionLevelDiseaseCount(Region regionObj, Map region, String regionName, String disease) {
@@ -61,7 +114,10 @@ public class Operations {
 			GlobalData.people.put(patient_id, patient);
 			GlobalData.total++;
 		}
-
+		
+		
+		incrementWorldTotalCases(disease);
+		incrementWorldActiveCases(disease);
 		Region countryObj = new Country(Country);
 		Region stateObj = new State(state);
 		Region distObj = new District(district);
@@ -90,6 +146,8 @@ public class Operations {
 		changeGlobalDiseaseCases(GlobalData.curedCases, disease, GlobalData.incremnt);
 
 		People patient = GlobalData.people.get(patient_id);
+		
+		decrementCuredlCases(disease);
 
 		derementRegionevelDiseaseCount(GlobalData.cntrs, patient.getCountry(), disease);
 		derementRegionevelDiseaseCount(GlobalData.states, patient.getState(), disease);
@@ -104,10 +162,17 @@ public class Operations {
 
 		GlobalData.active--;
 		GlobalData.fatality++;
+		
+		incrementWorldFatalityCases(disease);
+		decrementWorldActiveCases(disease);
 
 		derementRegionevelDiseaseCount(GlobalData.cntrs, patient.getCountry(), disease);
 		derementRegionevelDiseaseCount(GlobalData.states, patient.getState(), disease);
 		derementRegionevelDiseaseCount(GlobalData.districts, patient.getDistrict(), disease);
+		
+//		incrementRegionaleveCount(GlobalData.cntrs, patient.getCountry(), disease);
+//		derementRegionevelDiseaseCount(GlobalData.states, patient.getState(), disease);
+//		derementRegionevelDiseaseCount(GlobalData.districts, patient.getDistrict(), disease);
 	}
 
 	public void showWorldLevelSummary() {
