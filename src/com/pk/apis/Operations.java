@@ -183,20 +183,13 @@ public class Operations {
 	}
 
 	public void showDiseaseWiseWorldSummary() {
-		for (Map.Entry<String, Integer> entry : GlobalData.diseaseCount.entrySet()) {
-			System.out.println("Total " + entry.getKey() + " cases :: " + entry.getValue());
-		}
-
-		for (Map.Entry<String, Integer> entry : GlobalData.curedCases.entrySet()) {
-			System.out.println("Total " + entry.getKey() + " cases :: " + entry.getValue());
-		}
-
-		for (Map.Entry<String, Integer> entry : GlobalData.fatalityCases.entrySet()) {
-			System.out.println("Total " + entry.getKey() + " cases :: " + entry.getValue());
-		}
-
-		for (Map.Entry<String, Integer> entry : GlobalData.activeCases.entrySet()) {
-			System.out.println("Total " + entry.getKey() + " cases :: " + entry.getValue());
+		for (Map.Entry<String, Disease> entry : GlobalData.diseaseList.entrySet()) {
+				System.out.println(entry.getKey() + " :::");
+				System.out.println("Total cases    ::: " + entry.getValue().getTotalCases());
+				System.out.println("Cured cases    ::: " + entry.getValue().getCuredCases());
+				System.out.println("Active cases   ::: " + entry.getValue().getActiveCases());
+				System.out.println("Fatality cases ::: " + entry.getValue().getFatalityCases());
+				System.out.println("____________________________________________________________");
 		}
 	}
 	

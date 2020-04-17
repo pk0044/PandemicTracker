@@ -18,17 +18,17 @@ public class Application {
 		while(sc.hasNextLine()) {
 			input = sc.nextLine();
 			inputs = input.split(" ");
-			System.out.println(inputs[0] + " " + inputs[1] + " " + inputs[2] + " " + inputs[3] + " " + inputs[4] + " " + inputs[5]);
+			//System.out.println(inputs[0] + " " + inputs[1] + " " + inputs[2] + " " + inputs[3] + " " + inputs[4] + " " + inputs[5]);
 			ops.report(inputs[1], inputs[2], inputs[3], inputs[4], inputs[5]);
 			
 			//ops.showDiseaseWorldSummary();
 		}
 		
-		ops.showWorldLevelSummary();
+//		ops.showWorldLevelSummary();
 		ops.showDiseaseWiseWorldSummary();
-		ops.showCountryBreakup("COVID-19");
-		ops.showDistrictBreakupDiseaseWise("COVID-19");
-		ops.showStateBreakupDiseaseWise("COVID-19");
+//		ops.showCountryBreakup("COVID-19");
+//		ops.showDistrictBreakupDiseaseWise("COVID-19");
+//		ops.showStateBreakupDiseaseWise("COVID-19");
 		
 	}
 
